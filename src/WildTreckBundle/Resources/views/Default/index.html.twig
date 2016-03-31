@@ -1,23 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <!-- widget meteo -->
-    <div id="widget_5b45b184fe2641b67cdaf6a58a090cdc">
-        <span id="l_5b45b184fe2641b67cdaf6a58a090cdc"><a href="http://www.my-meteo.fr/previsions+meteo+france/la+loupe.html">MyMeteo</a></span>
-        <script type="text/javascript">
-            (function() {
-                var my = document.createElement("script"); my.type = "text/javascript"; my.async = true;
-                my.src = "http://services.my-meteo.fr/widget/js-design.php?ville=10978&format=horizontal&nb_jours=3&coins&ombre1=000000&c1=ffffff&c2=45a5e9&c3=ffffff&c4=ffffff&c5=ffffff&police=9&t_icones=3&fond=1&masque=3&x=472&y=150&id=5b45b184fe2641b67cdaf6a58a090cdc";
-                var z = document.getElementsByTagName("script")[0]; z.parentNode.insertBefore(my, z);
-            })();
+    <div id="container">
+        <img id="velo" src="{{ asset ('bundles/framework/images/velo.jpg') }}" alt="home page"/>
+        <input type="text" id="ville" onkeypress="handleVazyCity(event)" />
+        <input type="submit" onclick="vazycity()">
+        <script>
+            function handleVazyCity(e){
+                if(e.keyCode === 13){
+                    vazycity();
+                }
+                return false;
+            }
+            function vazycity() {
+                var ville = document.getElementById('ville').value;
+                var link = "http://api.openweathermap.org/data/2.5/weather?q=" + ville + "&appid=a30778a294033bcb08e92c29ed1b1832&units=metric&lang=fr";
+                var request = new XMLHttpRequest();
+                request.open('GET', link, false);
+                request.send(null);
+                if (request.status == 200) {
+                    var response = JSON.parse(request.responseText);
+                    if(response.main.humidity > 50 && response.main.temp < 10) {
+                        window.location = '/lelienversactivites';
+                    } else {
+                        window.location = '/lelienverssport';
+                    }
+                }
+            }
         </script>
     </div>
-    <!-- widget meteo -->
-    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-    <div style='overflow:hidden;height:440px;width:700px;'><div id='gmap_canvas' style='height:440px;width:700px;'>
-
-        </div><div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div>
-        <div><small><a href="http://www.autohuren.world/">autohuren</a></small></div>
-        <style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
-    <script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(48.471285,1.0143050000000358),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(48.471285,1.0143050000000358)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>La loupe<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-
 {% endblock %}
