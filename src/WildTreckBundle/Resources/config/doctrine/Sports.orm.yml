@@ -1,0 +1,15 @@
+WildTreckBundle\Entity\Sports:
+    type: entity
+    table: null
+    repositoryClass: WildTreckBundle\Repository\SportsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sports:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

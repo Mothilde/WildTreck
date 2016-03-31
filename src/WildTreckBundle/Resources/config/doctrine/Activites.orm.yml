@@ -1,0 +1,15 @@
+WildTreckBundle\Entity\Activites:
+    type: entity
+    table: null
+    repositoryClass: WildTreckBundle\Repository\ActivitesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        activites:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
