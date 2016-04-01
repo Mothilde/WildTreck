@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+<body id="homepage">
+<h1>Aller Viens On Bouge !</h1>
+
     <div id="container">
-        <img id="velo" src="{{ asset ('bundles/framework/images/velo.jpg') }}" alt="home page"/>
+
         <input type="text" id="ville" onkeypress="handleVazyCity(event)" />
         <input type="submit" onclick="vazycity()">
         <script>
@@ -20,12 +23,14 @@
                 if (request.status == 200) {
                     var response = JSON.parse(request.responseText);
                     if(response.main.humidity > 50 && response.main.temp < 10) {
-                        window.location = '/lelienversactivites';
+                        window.location = '{{ path ('activite') }}';
                     } else {
-                        window.location = '/lelienverssport';
+                        window.location = '{{ path ('sport') }}';
                     }
                 }
             }
         </script>
     </div>
+</body>
+
 {% endblock %}

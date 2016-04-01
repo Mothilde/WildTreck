@@ -1,3 +1,11 @@
 wild_treck_homepage:
     path:     /
     defaults: { _controller: WildTreckBundle:Default:index }
+
+activite:
+    path:    /activite
+    defaults: { _controller: WildTreckBundle:Default:activite }
+
+sport:
+    path:    /sport
+    defaults: { _controller: WildTreckBundle:Default:sport }

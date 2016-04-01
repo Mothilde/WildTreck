@@ -1,0 +1,21 @@
+#homepage {
+    background-image: url('./images/homepage.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    margin: auto;
+    position: relative;
+    margin-right: 10px;
+
+}
+
+#container {
+    text-align: center;
+    margin-top: 200px;
+
+}
+
+h1 {
+    text-align: center;
+    color: #66dd66;
+}
+
