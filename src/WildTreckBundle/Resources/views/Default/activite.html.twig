@@ -1,1 +1,16 @@
-blablabla
+{% extends 'base.html.twig' %}
+{% block body %}
+<body id="activite">
+<h1>Dommage il pleut :(</h1>
+<div id="boxe">
+    <img src="{{ asset('bundles/wildtreck/images/boxe.png') }}" alt="boxe">
+</div>
+<div id="bowling">
+    <img src="{{ asset('bundles/wildtreck/images/bowling.jpg') }}" alt="bowling">
+</div>
+<div id="cinema">
+    <img src="{{ asset('bundles/wildtreck/images/cinema.png') }}" alt="cinema">
+</div>
+</body>
+
+{% endblock %}

@@ -14,8 +14,32 @@
 
 }
 
+#activite {
+    background-image: url('./images/salledesport.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+#sport {
+    background-image: url('./images/veloactivite.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+
+}
+
+#boxe {
+    float: left;
+}
+
+#cinema {
+}
+
 h1 {
     text-align: center;
     color: #66dd66;
 }
+
+
 
