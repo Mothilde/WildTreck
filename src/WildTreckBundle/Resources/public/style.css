@@ -1,5 +1,6 @@
 #homepage {
     background-image: url('./images/homepage.jpg');
+    background-color: rgba(0,0,0,0.5);
     width: 100%;
     background-repeat: no-repeat;
     margin: auto;
@@ -39,6 +40,24 @@
 h1 {
     text-align: center;
     color: #66dd66;
+}
+
+.activite
+{
+    display:flex;
+    justify-content: space-between;
+    width: 85%;
+    margin-left: 88px;
+    margin-top: 188px;
+
+
+}
+
+.activite img
+{
+    width:200px;
+    height: 200px;
+    border-radius: 100%;
 }
 
 
